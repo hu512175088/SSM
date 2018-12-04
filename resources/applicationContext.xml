@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:aspect="http://www.springframework.org/schema/aspect"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/aspect
+           http://www.springframework.org/schema/aspect/spring-aspect.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 支持Spring注解的配置 -->
+	<context:component-scan base-package="com.ssm.service"/>
+
+	<!-- 读取Pro文件 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:database.properties"/>
+	</bean>
+
+	
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" scope="singleton" destroy-method="close">
+		<!-- Jar包驱动 -->
+		<property name="driverClassName" value="${driverClassName}"/>
+		<!-- 请求访问数据源路径 -->
+		<property name="url" value="${url}"/>
+		<!-- 用户名 -->
+		<property name="username" value="${username}"/>
+		<!-- 密码 -->
+		<property name="password" value="${password}"/>
+		<!-- 最小连接数 -->
+		<!--<property name="minIdle" value="${minIdle}"/>-->
+		<!-- 最大连接数 -->
+		<!--<property name="maxIdle" value="${maxIdle}"/>-->
+		<!-- 初始启动服务器时的初始连接数 -->
+		<!--<property name="initialSize" value="${initialSize}"/>-->
+		<!-- 并发最大连接数 -->
+		<!--<property name="maxActive" value="${maxActive}"/>-->
+		<!-- 最大空闲等待时间 -->
+		<!--<property name="maxWait" value="${maxWait}"/>-->
+		<!-- 连接池是否开启无用连接回收机制 -->
+		<!--<property name="removeAbandoned" value="${removeAbandoned}"/>-->
+		<!-- 超出指定时间后回收无用的连接 -->
+		<!--<property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}"/>-->
+
+
+		<!-- sql心跳 -->
+		<!-- 
+			作用:
+				当系统正常运行时,如果因为某种原因,数据库Down机了,遇到了突发情况,
+				那么连接池中所有连接都已无效,那么整个系统的功能都不可用,
+				那么这时候需要对数据库服务器和应用服务器进行重启操作,
+				才能正常访问应用系统,使用业务功能.
+				这时候就需要应用sql心跳
+
+		 -->
+
+						<!-- 定时开启EVICT定时效验 -->
+		<!--<property name="testWhileIdle" value="true"/>-->
+						<!-- 定义在进行BorrowObject处理时,不进行效验 -->
+		<!--<property name="testOnBorrow" value="false"/>-->
+						<!-- 定义返回的时候,不进行效验 -->
+		<!--<property name="testOnReturn" value="false"/>-->
+						<!-- 定义效验所使用的Sql语句,查询一下是否与mysql继续保持着正常连接 -->
+		<!--<property name="validationQuery" value="select 1"/>-->
+						<!-- 定义EVICT时间间隔,单位毫秒 -->
+		<!--<property name="timeBetweenEvictionRunsMillis" value="60000"/>-->
+						<!-- 定义每次效验的连接数 -->
+		<!--<property name="numTestsPerEvictionRun" value="${maxActive}"/>-->
+
+	</bean>
+	
+	<!-- 注册SQLSessionFactoryBean -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="typeAliasesPackage" value="com.ssm.pojo"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	
+	<!-- 注册Mapper -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.ssm.dao"/>
+	</bean>
+	
+	<!-- 配置注入事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	
+	<!-- 配置事务定义方法 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="modify*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="select*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="get*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="search*" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="fileDownload" read-only="true" propagation="SUPPORTS"/>
+			<tx:method name="*" propagation="REQUIRED" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 配置切入点,将事务定义织入 -->
+	<aop:config>
+		<aop:pointcut id="pointcut" expression="execution(* com.ssm.service.impl.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+	</aop:config>
+	
+</beans>

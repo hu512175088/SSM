@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.AllTableMapper">
+
+    <select id="getAllTable" resultType="AllTable">
+        SELECT * FROM ALL_TABLES
+
+    </select>
+
+    <!-- 求总记录数 -->
+    <select id="count" parameterType="AllTable" resultType="int">
+		SELECT
+			COUNT(1)
+		FROM
+			ALL_TABLES
+	</select>
+
+	<!--通过表名查询是否存在-->
+	<select id="searchtablenameIsExists" resultType="AllTable">
+		SELECT * FROM ALL_TABLES
+		<where>
+			<if test="table_name != null and table_name != ''">
+				AND TABLE_NAME = #{table_name}
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,28 @@
+package com.ssm.dao;
+
+import com.ssm.pojo.AllTable;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+public interface AllTableMapper {
+
+    /**
+     * 查询所有的表名
+     * @return
+     */
+    List<AllTable> getAllTable();
+
+    /**
+     * 求总记录数
+     */
+    int count(AllTable allTable );
+
+
+    /**
+     * 验证表名是否存在
+     * @param table_name
+     * @return
+     */
+    AllTable searchtablenameIsExists(@Param("table_name") String table_name);
+}

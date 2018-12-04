@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.UserMapper">
+	
+	<!-- 验证用户登录账号是否存在 -->
+	<select id="searchUserCodeIsExists" parameterType="String" resultType="User">
+		SELECT 
+			*
+		FROM 
+			LOGINUSER
+		<where>
+		<if test="userCode != null and userCode != ''">
+			AND userCode = #{userCode}
+		</if>
+	</where>
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="add" parameterType="User">
+		INSERT INTO 
+		LOGINUSER(
+			userName,
+			userCode,
+			password,
+			createTime
+		)
+		VALUES(
+			#{userName}, 
+			#{userCode}, 
+			#{password},
+			sysdate
+		)
+	</insert>
+	
+	<!-- 
+		显示:实现搜索(用户名称,用户性别,创建日期[开始日期,截止日期])
+		实现排序按照最新用户,并且进行分页 
+	-->
+	<select id="searchUserListByUserNameAndGenderAndDateTime" parameterType="User" resultType="User">
+		SELECT 
+			*
+		FROM
+		LOGINUSER
+	</select>
+
+	
+	<!-- 求总记录数 -->
+	<select id="count" parameterType="User" resultType="int">
+		SELECT 
+			COUNT(1)
+		FROM
+			USERBIAO
+	</select>
+</mapper>

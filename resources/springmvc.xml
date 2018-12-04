@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:aspect="http://www.springframework.org/schema/aspect"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/aspect
+           http://www.springframework.org/schema/aspect/spring-aspect.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+			http://www.springframework.org/schema/task
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<!-- 启动MVC驱动 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- 支持SpringMVC注解 -->
+	<context:component-scan base-package="com.ssm.controller"/>
+
+	<task:annotation-driven/>
+	
+	<!-- 配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 处理静态资源 -->
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/css/image/" mapping="/images/**"/>
+	
+	 <!--配置拦截器-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*"></mvc:mapping>
+			<bean class="com.ssm.interceptor.SystemInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>
