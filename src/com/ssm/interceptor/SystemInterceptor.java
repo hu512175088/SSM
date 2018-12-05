@@ -31,10 +31,11 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 				|| url.indexOf("addUserRegister") > -1
 				|| url.indexOf("goUserLogin") > -1
 				|| url.indexOf("validateLoginUser") > -1
-				||url.indexOf("goFileDow") > -1
-				||url.indexOf("validatetable_name") > -1
-				||url.indexOf("goDowFile") > -1
-				||url.indexOf("goDownload") > -1
+				|| url.indexOf("goFileDow") > -1
+				|| url.indexOf("validatetable_name") > -1
+				|| url.indexOf("goDowFile") > -1
+				|| url.indexOf("goDownload") > -1
+				|| url.indexOf("setDynamicCronTask") > -1
 			) {
 			return true;
 		} else {
