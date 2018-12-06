@@ -4,26 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.AllTableMapper">
 
-    <select id="getAllTable" resultType="AllTable">
-        SELECT * FROM ALL_TABLES
+    <select id="getAllTable" resultType="java.util.HashMap" parameterType="Params">
+        SELECT * FROM(
+			SELECT ROWNUM WN,RN.* FROM (
+				SELECT
+					*
+				FROM
+					ALL_TABLES
+			)RN
+		)WN
+		WHERE WN &lt;= #{pageSize} AND WN &gt; #{pageNo}
+
 
     </select>
 
     <!-- 求总记录数 -->
-    <select id="count" parameterType="AllTable" resultType="int">
+    <select id="count" resultType="int">
 		SELECT
 			COUNT(1)
 		FROM
 			ALL_TABLES
 	</select>
 
-	<!--通过表名查询是否存在-->
-	<select id="searchtablenameIsExists" resultType="AllTable">
-		SELECT * FROM ALL_TABLES
-		<where>
-			<if test="table_name != null and table_name != ''">
-				AND TABLE_NAME = #{table_name}
-			</if>
-		</where>
-	</select>
+    <!--通过表名查询是否存在-->
+    <select id="searchtablenameIsExists" resultType="AllTable">
+        SELECT * FROM ALL_TABLES
+        <where>
+            <if test="table_name != null and table_name != ''">
+                AND TABLE_NAME = #{table_name}
+            </if>
+        </where>
+    </select>
+
+
+
 </mapper>

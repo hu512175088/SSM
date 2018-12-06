@@ -39,7 +39,7 @@
 		实现排序按照最新用户,并且进行分页 
 	-->
 	<select id="searchUserListByUserNameAndGenderAndDateTime" parameterType="User" resultType="User">
-		SELECT 
+		SELECT
 			*
 		FROM
 		LOGINUSER
@@ -47,7 +47,7 @@
 
 	
 	<!-- 求总记录数 -->
-	<select id="count" parameterType="User" resultType="int">
+	<select id="count" resultType="int">
 		SELECT 
 			COUNT(1)
 		FROM

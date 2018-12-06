@@ -39,6 +39,6 @@ public interface UserMapper {
 	/**
 	 * 求总记录数
 	 */
-	int count(User user);
+	int count();
 	
 }

@@ -25,7 +25,7 @@ public interface UserService {
 	/**
 	 * 求总记录数
 	 */
-	int count(User user);
+	int count();
 	
 	/**
 	 * 求总页数

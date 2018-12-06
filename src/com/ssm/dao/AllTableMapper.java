@@ -1,22 +1,24 @@
 package com.ssm.dao;
 
 import com.ssm.pojo.AllTable;
+import com.ssm.pojo.Params;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface AllTableMapper {
 
     /**
-     * 查询所有的表名
+     * 分页查询所有的表名
      * @return
      */
-    List<AllTable> getAllTable();
+    List<HashMap<String,Object>> getAllTable(Params params);
 
     /**
      * 求总记录数
      */
-    int count(AllTable allTable );
+    int count();
 
 
     /**
@@ -25,4 +27,6 @@ public interface AllTableMapper {
      * @return
      */
     AllTable searchtablenameIsExists(@Param("table_name") String table_name);
+
+
 }

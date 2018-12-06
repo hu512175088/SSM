@@ -32,12 +32,13 @@ public class UserServiceImpl implements UserService {
 		return mapper.searchUserListByUserNameAndGenderAndDateTime(user);
 	}
 
-	@Override
-	public int count(User user) {
-		// TODO Auto-generated method stub
-		return mapper.count(user);
-	}
 
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return mapper.count();
+	}
+//
 //	@Override
 //	public int pageCount(User user) {
 //		// TODO Auto-generated method stub

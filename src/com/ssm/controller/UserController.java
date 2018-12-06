@@ -113,25 +113,25 @@ public class UserController {
 			HttpServletRequest request
 			//@RequestParam(value="cp",required=false) String cp
 	) {
-//		// cp : 当前页
-//		if (cp == null) {
-//			cp = "1";
-//		}
+		 //cp : 当前页
+		//if (cp == null) {
+		//	cp = "1";
+		//}
 //		// 获取用户所有数据
 		User user = new User();
 //		// ①
-//		user.setPageSize(15);
+	//user.setPageSize(15);
 //		// ②
-//		user.setCurrentPage(Integer.parseInt(cp));
+		//user.setCurrentPage(Integer.parseInt(cp));
 //		// 总页数
-//		int pageCount = userService.pageCount(user);
+//	int pageCount = userService.pageCount(user);
 //		// 总条数
-//		int count = userService.count(user);
+	int count = userService.count();
 		List<User> userList = userService.searchUserListByUserNameAndGenderAndDateTime(user);
 		request.setAttribute("userList", userList);
-//		request.setAttribute("cp", cp);
-//		request.setAttribute("count", count);
-//		request.setAttribute("pageCount", pageCount);
+		//request.setAttribute("cp", cp);
+		request.setAttribute("count", count);
+		//request.setAttribute("pageCount", pageCount);
 		return "UserItems";
 	}
 	
