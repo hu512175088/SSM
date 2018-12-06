@@ -35,7 +35,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 				|| url.indexOf("validatetable_name") > -1
 				|| url.indexOf("goDowFile") > -1
 				|| url.indexOf("goDownload") > -1
-				|| url.indexOf("setDynamicCronTask") > -1
+				|| url.indexOf("goSetDynamicCronTask") > -1
 			) {
 			return true;
 		} else {

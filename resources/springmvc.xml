@@ -28,7 +28,8 @@
 	<!-- 支持SpringMVC注解 -->
 	<context:component-scan base-package="com.ssm.controller"/>
 
-	<!--<task:annotation-driven/>-->
+	<!--支持task定时任务注解-->
+	<task:annotation-driven/>
 	
 	<!-- 配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -39,8 +40,9 @@
 	<!-- 处理静态资源 -->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
-	<mvc:resources location="/WEB-INF/css/image/" mapping="/images/**"/>
-	
+	<mvc:resources location="/WEB-INF/css/images/" mapping="/images/**"/>
+	<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**"/>
+	<mvc:resources location="/WEB-INF/css1/" mapping="/css1/**"/>
 	 <!--配置拦截器-->
 	<mvc:interceptors>
 		<mvc:interceptor>

@@ -4,3 +4,9 @@
     font-family: "华文中宋";
 }
 
+body{
+    background-image: url("images/bg-01.jpg");
+    background-size: cover;
+    /*图片自适应整个页面*/
+
+}

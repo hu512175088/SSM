@@ -24,7 +24,7 @@
         输入需要导出的表名:<input id="table_name" type="text" >
         <input id="export" type="button" value="导出"><span id="TiShi"></span>
     </div>
-    <table border="0" width="100%" cellpadding="0" cellspacing="1" bgcolor="#ACDDEC">
+    <table border="0" width="100%" cellpadding="0" cellspacing="1" >
         <tr>
             <td>序号</td>
             <td width="200">表名</td>

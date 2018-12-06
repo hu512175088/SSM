@@ -3,13 +3,15 @@ $().ready(function(){
         // 隐式迭代
         var userCode = $("input[name='userCode']").val();
         var password = $("input[name='password']").val();
-        var loginTiShi = $("#loginTiShi");
+        var loginTiShi1 = $("#loginTiShi1");
+        var loginTiShi2 = $("#loginTiShi2");
         if (userCode == "") {
-            loginTiShi.text("登录账号不能为空").css({"color":"red"});
+            loginTiShi1.text("登录账号不能为空").css({"color":"red"});
         } else if (password == "") {
-            loginTiShi.text("密码不能为空").css({"color":"red"});
+            loginTiShi2.text("密码不能为空").css({"color":"red"});
         } else {
-            loginTiShi.text("");
+            loginTiShi1.text("");
+            loginTiShi2.text("");
             $.post(
                 "validateLoginUser",
                 {"userCode":userCode,"password":password},
@@ -19,7 +21,7 @@ $().ready(function(){
                         // 登录成功
                         location = "goAllTable";
                     } else {
-                        loginTiShi.text("登录账号或密码错误").css({"color":"red"});
+                        loginTiShi1.text("登录账号或密码错误").css({"color":"red"});
                     }
                 }
             ),"json";

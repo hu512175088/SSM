@@ -1,7 +1,7 @@
 $().ready(function(){
 	$("#btn_register").click(function(){
 		// 统一提示框
-		var tiShiSpan = $("#tiShiSpan");
+		var tiShiSpan = $("#tiShiSpan1");
 		// 获取登录账号
 		var userCode = $("#userCode").val();
 		// 获取登录密码
