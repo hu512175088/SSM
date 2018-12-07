@@ -27,7 +27,7 @@
         输入需要导出的表名:<input id="table_name" type="text" >
         <input id="export" type="button" value="导出"><span id="TiShi"></span>
     </div>
-    <p style="margin: 10px 0 0 650px; color: red; font-size: 5px">备注:当ID再次为1时,展示的为视图列表</p>
+    <p style="margin: 10px 0 0 650px; color: red; font-size: 5px">备注:当序号再次为1时,展示的为视图列表</p>
     <table class="ke_table">
         <thead>
         <tr>
@@ -59,7 +59,7 @@
                 num_display_entries : 5, //主体页数
                 num_edge_entries : 4,//边缘页数
                 current_page : 0,//指明选中页码
-                items_per_page : 15, //每页显示多少条
+                items_per_page : 25, //每页显示多少条
                 prev_text : "上一页",
                 next_text : "下一页",
                 showGo:true,//显示
@@ -74,7 +74,7 @@
         //在数据库中是  WN <= pageSize and WN > pageNo 来查询分页数据
         loadData:function(pageNo,pageSize){
             pageNo = pageNo * pageSize;
-            pageSize = pageNo + 15;
+            pageSize = pageNo + 25;
             $.ajax({
                 type:"post",
                 url:"/loadData",

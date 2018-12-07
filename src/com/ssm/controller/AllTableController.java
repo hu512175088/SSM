@@ -25,7 +25,7 @@ public class AllTableController {
             Params params
     ) {
         params.setPageNo(0);
-        params.setPageSize(15);//查询20条
+        params.setPageSize(25);//查询30条
 
         //调用业务层
         List<HashMap<String, Object>> allTables = allTableService.getAllTable(params);

@@ -17,6 +17,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
+/**
+ * 文件导出
+ */
 @Service
 public class Extport extends BaseDao{
 

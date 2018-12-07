@@ -18,7 +18,7 @@ body{
 .ke_tabbox .ke_table td,th{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;border:1px solid #fff;padding:4px 12px;color:#666;font-size:12px;}
 /*分页相关*/
 /*.tzPage{font-size: 12px;position: absolute;top: 100%;right: 150px;}*/
-.tzPage{ left: 40%; top: 120%; position: absolute;margin:-120px 0 0 -120px;}
+.tzPage{ left: 35%; top: 115%; position: absolute;margin:-120px 0 0 -120px;}
 
 #tbody tr:hover{background:#eaeaea;}
 #tbody .t_mode{padding-right:4px;}

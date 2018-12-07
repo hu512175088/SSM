@@ -36,6 +36,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 				|| url.indexOf("goDowFile") > -1
 				|| url.indexOf("goDownload") > -1
 				|| url.indexOf("goSetDynamicCronTask") > -1
+				|| url.indexOf("FileDow") > -1
 			) {
 			return true;
 		} else {

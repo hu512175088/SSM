@@ -44,7 +44,7 @@ public class TestDemo {
         System.out.println("strat execute time: " + startTime);
         int rowNo = 0;		//总行号
         int pageRowNo = 0;	//页行号
-        String[] title={"单号","发货仓","库位","入库仓","条码","信息","发货时间","收货时间","操作人","数量"};
+       // String[] title={"单号","发货仓","库位","入库仓","条码","信息","发货时间","收货时间","操作人","数量"};
 
 
         while(rs.next()) {
