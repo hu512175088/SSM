@@ -34,6 +34,7 @@
 		<div class="container-login100" style="background-image: url('../css/images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<%--<form class="login100-form validate-form" name="login" method="POST">--%>
+					<span id="loginTiShi" style="color: red;">${illegalLogiin }</span>
 					<span class="login100-form-title p-b-49">KEER登录</span>
 					<span id="loginTiShi" style="color: red;"></span>
 					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">

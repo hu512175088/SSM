@@ -35,4 +35,25 @@ $().ready(function(){
             ), "json";
         }
     });
+
+    var isFirstExport=true;
+    function showProgress(){
+        $("#Mask").css("height",$(document).height());
+        $("#Mask").css("width",$(document).width());
+        $("#Mask").show();
+        if(isFirstExport){
+            $("#Progress").circliful();
+        }else{
+            $("#Progress .circle-text").text("0%");
+            $("#Progress .circle-info").text("导出进度");
+            $("#Progress").show();
+        }
+    }
+    //隐藏进度条
+    function hideProgress(){
+        $("#Mask").hide();
+        $("#Progress").hide();
+    }
+
+
 });

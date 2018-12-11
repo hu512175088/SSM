@@ -18,7 +18,7 @@
             /*margin: auto;*/
             position:absolute;
             top:30%;
-            left:45%;
+            left:40%;
         }
     </style>
     <script src="js/jquery-1.8.3.js"></script>

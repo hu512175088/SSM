@@ -10,6 +10,8 @@
 <html>
 <head>
     <link href="../css/allTable.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/jquery.circliful.css"/>
+
     <title>分页</title>
     <style>
         /*body{background:url("../css/images/bg-01.jpg");background-size:cover;}*/
@@ -21,13 +23,12 @@
 <div class="ke_tabbox">
     <h2 style="font-size: 38px;" align="center">欢迎来到数据表和视图分页展示页面</h2>
     <p style="text-align: center;">
-        总计:${count }张表和视图
+        总计:${count }张视图
     </p>
     <div>
         输入需要导出的表名:<input id="table_name" type="text" >
         <input id="export" type="button" value="导出"><span id="TiShi"></span>
     </div>
-    <p style="margin: 10px 0 0 650px; color: red; font-size: 5px">备注:当序号再次为1时,展示的为视图列表</p>
     <table class="ke_table">
         <thead>
         <tr>
@@ -47,6 +48,16 @@
     </table>
     <div id="krryPage"></div>
 </div>
+
+<!-- Mask是遮罩，Progress是进度条 -->
+<div>
+    <div id="Mask"></div>
+    <div id="Progress" data-dimension="200" data-text="0%" data-info="导出进度" data-width="15" data-fontsize="30" data-percent="0" data-fgcolor="#22eeee" data-bgcolor="#6633CC"></div>
+</div>
+
+
+
+
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../js/krry_page.js"></script>
 <script src="js/AllTable.js"></script>
@@ -100,5 +111,6 @@
     krryAdminBlog.initPage($("#tbody").data("itemcount"));
 
 </script>
+<script type="text/javascript" src="js/jquery.circliful.min.js"></script>
 </body>
 </html>

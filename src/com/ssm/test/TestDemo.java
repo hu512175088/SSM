@@ -55,6 +55,11 @@ public class TestDemo {
 
                 sheet = wb.getSheetAt(rowNo/300000);		//动态指定当前的工作表
                 pageRowNo = 1;		//每当新建了工作表就将当前工作表的行号重置为0
+                nRow = sheet.createRow(0);
+                for (int i = 0; i < rsmd.getColumnCount(); i++) {
+                    nCell = nRow.createCell(i);
+                    nCell.setCellValue(rsmd.getColumnName(i + 1));
+                }
             }
             rowNo++;
 

@@ -38,20 +38,20 @@
 		<property name="username" value="${username}"/>
 		<!-- 密码 -->
 		<property name="password" value="${password}"/>
-		<!-- 最小连接数 -->
-		<!--<property name="minIdle" value="${minIdle}"/>-->
-		<!-- 最大连接数 -->
-		<!--<property name="maxIdle" value="${maxIdle}"/>-->
-		<!-- 初始启动服务器时的初始连接数 -->
-		<!--<property name="initialSize" value="${initialSize}"/>-->
-		<!-- 并发最大连接数 -->
-		<!--<property name="maxActive" value="${maxActive}"/>-->
-		<!-- 最大空闲等待时间 -->
-		<!--<property name="maxWait" value="${maxWait}"/>-->
-		<!-- 连接池是否开启无用连接回收机制 -->
-		<!--<property name="removeAbandoned" value="${removeAbandoned}"/>-->
-		<!-- 超出指定时间后回收无用的连接 -->
-		<!--<property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}"/>-->
+		 <!--最小连接数-->
+		<property name="minIdle" value="${minIdle}"/>
+		 <!--最大连接数-->
+		<property name="maxIdle" value="${maxIdle}"/>
+		 <!--初始启动服务器时的初始连接数-->
+		<property name="initialSize" value="${initialSize}"/>
+		 <!--并发最大连接数-->
+		<property name="maxActive" value="${maxActive}"/>
+		 <!--最大空闲等待时间-->
+		<property name="maxWait" value="${maxWait}"/>
+		 <!--连接池是否开启无用连接回收机制-->
+		<property name="removeAbandoned" value="${removeAbandoned}"/>
+		 <!--超出指定时间后回收无用的连接-->
+		<property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}"/>
 
 
 		<!-- sql心跳 -->

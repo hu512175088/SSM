@@ -5,6 +5,7 @@ import com.ssm.pojo.AllTable;
 import com.ssm.service.AllTableService;
 import com.ssm.service.impl.DownloadUtil;
 import com.ssm.service.impl.Extport;
+import com.ssm.service.impl.Extporttest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,8 @@ public class DowloadController {
 
     @Resource
     private Extport extport;
+    @Resource
+    private Extporttest extporttest;
 
     @Resource
     private AllTableService allTableService = null;
@@ -40,6 +43,7 @@ public class DowloadController {
         try {
             if (table_name != null) {
                 extport.OuteXlsx(table_name, request, response);
+
                 resultMap.put("Export", true);
             } else {
                 resultMap.put("Export", false);
