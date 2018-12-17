@@ -19,13 +19,15 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 		String url = request.getRequestURI();
 		// 获取Session中的用户信息
 		User user = (User) request.getSession().getAttribute("user");
+
+//				|| url.indexOf(".css") > -1
+//				|| url.indexOf(".js") > -1
+//				|| url.indexOf(".png") > -1
+//				|| url.indexOf(".jpg") > -1
+//				|| url.indexOf(".jpeg") > -1
+//				|| url.indexOf(".gif") > -1
+
 		if (user != null
-				|| url.indexOf(".css") > -1 
-				|| url.indexOf(".js") > -1
-				|| url.indexOf(".png") > -1
-				|| url.indexOf(".jpg") > -1
-				|| url.indexOf(".jpeg") > -1
-				|| url.indexOf(".gif") > -1
 				|| url.indexOf("goUserRegister") > -1
 				|| url.indexOf("validateUserCodeIsExists") > -1
 				|| url.indexOf("addUserRegister") > -1
@@ -36,7 +38,6 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 				|| url.indexOf("goDowFile") > -1
 				|| url.indexOf("goDownload") > -1
 				|| url.indexOf("goSetDynamicCronTask") > -1
-				|| url.indexOf("FileDow") > -1
 			) {
 			return true;
 		} else {

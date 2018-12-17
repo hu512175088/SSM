@@ -1,15 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+<%--<%--%>
+    <%--String path = request.getContextPath();--%>
+    <%--String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";--%>
+<%--%>--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <style type="text/css">
         body{
-            background-image: url("../css/images/bg-01.jpg");
+            background-image: url("css/images/bg-01.jpg");
             background-size: cover;
             text-align:center
             /*图片自适应整个页面*/

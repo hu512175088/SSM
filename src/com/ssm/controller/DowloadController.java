@@ -42,8 +42,8 @@ public class DowloadController {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         try {
             if (table_name != null) {
-                extport.OuteXlsx(table_name, request, response);
-
+                //extport.OuteXlsx(table_name, request, response);
+                extporttest.OuteXlsx(table_name,request,response);
                 resultMap.put("Export", true);
             } else {
                 resultMap.put("Export", false);

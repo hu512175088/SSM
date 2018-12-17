@@ -1,6 +1,7 @@
 package com.ssm.service.impl;
 
 import com.ssm.dao.BaseDao;
+import com.ssm.utils.DateUtil;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -8,20 +9,19 @@ import org.apache.poi.xssf.streaming.SXSSFSheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.Date;
 
 /**
- * 文件导出
+ * 商品部报表定时文导出
  */
 @Service
-public class Extporttest extends BaseDao {
+public class commodityExport extends BaseDao {
 
     /**
      * 数据库连接所需要的工具(查询用)
@@ -34,11 +34,13 @@ public class Extporttest extends BaseDao {
     //String table_name = null;
     //String file_name = null;
 
-    public void OuteXlsx(String table_name, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void OuteXlsx(String table_name) throws Exception {
         //文件路径
-        String path=this.getClass().getClassLoader().getResource(File.separator).getPath()+File.separator+"files"+File.separator+"Report"+File.separator+"shangPB"+File.separator+"wp";
+
+        //String path = this.getClass().getClassLoader().getResource(File.separator).getPath()+ File.separator +"files"+ File.separator +"Report"+ File.separator +"shangPB";
+        String path= Thread.currentThread().getContextClassLoader().getResource(File.separator).getPath();
         //文件名
-        String xlsFile = path + "//" + table_name + ".xlsx ";
+        String xlsFile = path + File.separator + table_name + DateUtil.dateToString(new Date(), "yyyy-MM-dd")  +".xlsx";
         //String xlsFile = path+"//"+table_name + DateUtil.dateToString(new Date(), "yyyy-MM-dd") + ".xlsx";		//输出文件
         //内存中只创建100个对象，写临时文件，当超过100条，就将内存中不用的对象释放。
         SXSSFWorkbook wb = new SXSSFWorkbook(100);            //关键语句
@@ -48,9 +50,9 @@ public class Extporttest extends BaseDao {
 
         //使用jdbc链接数据库
         //获取数据库连接
-        String sql = "SELECT * FROM " + table_name + " WHERE ROWNUM <= 70000 ";
+        String sql = "SELECT * FROM " + table_name + " WHERE 日期=to_char((sysdate-1),'yyyy-mm-dd') " ;
 
-//        + " WHERE ROWNUM <= 70000 "
+
 
         conn = this.getConnection();
         ps = conn.prepareStatement(sql);

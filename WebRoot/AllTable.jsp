@@ -1,22 +1,19 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    pageContext.setAttribute("basePath", basePath);
-%>
+<%--<%--%>
+    <%--String path = request.getContextPath();--%>
+    <%--String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
+    <%--pageContext.setAttribute("basePath", basePath);--%>
+<%--%>--%>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-    <link href="../css/allTable.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/jquery.circliful.css"/>
+    <link href="css/allTable.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/jquery.circliful.css"/>
 
     <title>分页</title>
-    <style>
-        /*body{background:url("../css/images/bg-01.jpg");background-size:cover;}*/
 
-    </style>
 </head>
 
 <body>
@@ -58,9 +55,9 @@
 
 
 
-<script src="../js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../js/krry_page.js"></script>
-<script src="js/AllTable.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/krry_page.js"></script>
+<script src="./js/AllTable.js"></script>
 <script type="text/javascript">
 
 

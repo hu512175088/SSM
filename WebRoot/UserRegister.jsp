@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%--<%--%>
+    <%--String path = request.getContextPath();--%>
+    <%--String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
+<%--%>--%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -13,25 +13,25 @@
     <%--<meta name="keywords" content="" />--%>
     <%--<meta name="description" content="" /> --%>
 
-    <link rel="stylesheet" type="text/css" href="../css1/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" type="text/css" href="../css1/util.css">
-    <link rel="stylesheet" type="text/css" href="../css1/main.css">
-    <link rel="stylesheet" type="text/css" href="../css1/stylealert.css" >
-    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css1/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="css1/util.css">
+    <link rel="stylesheet" type="text/css" href="css1/main.css">
+    <link rel="stylesheet" type="text/css" href="css1/stylealert.css" >
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <%--<script type="text/javascript" src="ReportServer?op=emb&resource=finereport.js"></script>--%>
     <%--<script type="text/javascript" src="../js/ui.js"></script>--%>
-    <script src="../js/jquery-1.8.3.js"></script>
-    <script src="../js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="../js/userRegister.js"></script>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="js/userRegister.js"></script>
 
 </head>
 
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('../css/images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url('css/images/bg-01.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <%--<form class="login100-form validate-form" name="login" method="POST">--%>
             <span class="login100-form-title p-b-49">KEER注册</span>

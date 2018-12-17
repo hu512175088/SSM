@@ -31,6 +31,9 @@
           <element id="library" level="module" name="spring-web-3.2.13.RELEASE.jar" module-name="SSM" />
           <element id="library" level="module" name="spring-webmvc-3.2.13.RELEASE.jar" module-name="SSM" />
           <element id="library" level="module" name="jstl-1.2.jar" module-name="SSM" />
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="jackson-core-2.9.4" />
+          <element id="library" level="project" name="jackson-databind-2.9.4" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="SSM/web/Web" />
